@@ -9,6 +9,9 @@
       <li class="active"><router-link to="/">HOME</router-link></li>
         <li><router-link to="/cart">장바구니</router-link></li>
         <li><router-link to="/calculator">계산기 </router-link></li>
+        <li><router-link to="/seqsum">입력된 두수사이의 자연수  </router-link></li>
+        <li><router-link to="/account"> 비트은행   </router-link></li>
+        <li><router-link to="/todo"> 투두    </router-link></li>
         <li>회원가입</li>
         <li>로그인 </li>
       </ul>

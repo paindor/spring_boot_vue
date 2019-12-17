@@ -2,7 +2,7 @@
 <div>
     <Nav></Nav>
     <div class="calculator">
-    <div class="display">{{current || '0'}}</div>
+    <div class="display">{{current || 0 }}</div>
     <div @click="clear" class="btn">C</div>
     <div class="btn">+/-</div>
     <div  class="btn">%</div>
@@ -33,6 +33,7 @@ import Nav from '@/components/Nav.vue'
 import Footer from '@/components/Footer.vue'
 export default{
 	name: 'calculator',
+	
 	components :{
 		Nav,
 		Footer
@@ -117,7 +118,7 @@ export default{
 .btn{
 	background-color: #F2F2F2;
 	border: 1px solid #999;
-
+ 
 }
 .operator{
 	background-color : orange;
