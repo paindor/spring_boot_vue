@@ -34,6 +34,10 @@ export default{
 
 	},
 	methods:{
+		specialEvent(){
+			this.balance = 10000
+
+		}
 		deposit(){
 			this.balance += Number(this.amount)
 

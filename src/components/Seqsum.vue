@@ -3,8 +3,8 @@
 	<h1>seqsum 페이지</h1>
 	<Nav></Nav>
 	<ul>
-		<input id ="first" type="text" />첫번째수
-		<input id="second" type="text" />두번째수
+		<input v-model ="first" type="text" />첫번째수
+		<input v-model="second" type="text" />두번째수
 	</ul>
 	<button @click="sum">+</button>
 	<p>합계:{{totalNum}}</p>
@@ -54,20 +54,18 @@ export default{
 			this.seen = true
 		},
 		sum(){
-			const first = parseInt(document.getElementById('first').value)
-			const second = parseInt(document.getElementById('second').value)
-			let start = 0 , end = 0
-			if(first < second){
-				start = first
-				end = second
-			}else{
-				start = second
-				end = first
-			}
-			alert(first)
-			alert(second)
+			let s = parseInt(this.first)
+			let e = parseInt(this.second)
+			let arr = [s,e]
+			arr.sort(function(s,e) {
+				return s-e
+				
+			})
+			
 			let sum = 0
-			for(let i = start ; i <= end ; i++){
+			let st = arr[0]
+			let ed = arr[1]
+			for(let i = st ; i <= ed ; i++){
 
 				sum += i
 

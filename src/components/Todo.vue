@@ -39,7 +39,10 @@ export default {
 	},
 	methods : {
 		addTodo(){
-			this.todos.push({id: this.todos.length+1, todo: this.task, done:false, clazz: ''})
+			if(this.task != ''){
+				this.todos.push({id: this.todos.length+1, todo: this.task, done:false, clazz: ''})
+			}
+			
 		},
 		doneToggle(index){
 			alert(`클릭한 아이디 ${index}`)
