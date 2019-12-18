@@ -17,7 +17,7 @@
 
 
 <script>
-import Nav from "@/components/Nav.vue"
+import Nav from "@/components/cmm/Nav.vue"
 export default{
 	name:'account',
 	components : {
@@ -37,7 +37,7 @@ export default{
 		specialEvent(){
 			this.balance = 10000
 
-		}
+		},
 		deposit(){
 			this.balance += Number(this.amount)
 

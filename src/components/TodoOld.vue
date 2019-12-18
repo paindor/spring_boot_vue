@@ -9,11 +9,11 @@
         <span class="addbutton" @click="addTodo">추 가</span>
     </div>
     <ul id="todolist">
-        <li @click="doneToggle(v.id)" v-for="(v , i) of todos" :key="v.id" :class="v.clazz" >
+        <li @click="doneToggle(v)" v-for="(v , i) of todos" :key="v.id" :class="v.clazz" >
             <span>{{i+1}}. </span>
 			<span>{{v.todo}}</span>
-            <span v-if="v.done" >(완료)</span>
-			<span @click="deleteTodo" class="done">&#x00D7;</span>
+            <span v-if="v.clazz" >(완료)</span>
+			<span @click="deleteTodo(i)" class="done">&#x00D7;</span>
         </li>
     </ul>
 </div>
@@ -21,8 +21,8 @@
 </div>
 </template>
 <script>
-import Nav from "@/components/Nav.vue"
-import Footer from "@/components/Footer.vue"
+import Nav from "@/components/cmm/Nav.vue"
+import Footer from "@/components/cmm/Footer.vue"
 export default {
 	name : 'todo',
 	components : {Nav, Footer},
@@ -44,14 +44,19 @@ export default {
 			}
 			
 		},
-		doneToggle(index){
-			alert(`클릭한 아이디 ${index}`)
-			this.todos[index-1].done = !this.todos[index-1].done
-			this.todos[index-1].clazz = (this.todos[index-1].done)? 'checked': ''
+		doneToggle(json){
+			//alert(`클릭한 아이디 ${index}`)
+            if(json.clazz == 'checked'){
+                json.clazz = ''
+            }else{
+                json.clazz = 'checked'
+            }
 			
 		},
-		deleteTodo(){
-			alert('delete')
+		deleteTodo(index){
+           alert(index)
+
+            this.todos.splice(index, 1)
 		}
 	}
 }
